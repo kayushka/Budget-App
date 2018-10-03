@@ -1,0 +1,24 @@
+{% extends 'noname/base.html' %}
+
+{% block content %}
+<form method="POST" action=" ">
+    {% csrf_token %}
+<ul>
+    {% for i in allIncome %}
+    <li>
+        {{ i.amount}}
+        {{ i.get_category_display }}
+        {{ i.date }}
+    </li>
+    {% endfor %}
+{% for i in allExpenses %}
+    <li>
+        {{ i.amount}}
+        {{ i.get_category_display }}
+        {{ i.date }}
+    </li>
+    {% endfor %}
+</ul>
+<a href="/home">Wróć</a><br>
+</form>
+    {% endblock %}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+  <head>
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body>
+    <h1>NAZWA APKI</h1>
+    {% if request.user.is_authenticated %}
+       Zalogowany jako: {{ request.user }}<br>
+       <a href="{% url 'logout' %}">Wyloguj</a>
+   {% else %}<br>
+       <a href="{% url 'login' %}">Zaloguj</a>
+   {% endif %}
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

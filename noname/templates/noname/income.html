@@ -1,0 +1,18 @@
+{% extends 'noname/base.html' %}
+
+
+{% block content %}
+
+<form method="POST" action=" ">
+<br>
+       Przychody ogółem: {{ income|floatformat:2 }}
+    <br><br>
+    Pensja: {{ salary|floatformat:2 }} <br>
+        Pensja partnerki/partnera: {{ salary2|floatformat:2 }}<br>
+        Premia: {{ bonus|floatformat:2 }} <br>
+        Sprzedaż: {{ sale|floatformat:2 }} <br>
+    Inne: {{ other|floatformat:2 }}
+    <br>
+<a href="/home">Wróć</a><br>
+</form>
+{% endblock %}

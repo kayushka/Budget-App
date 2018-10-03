@@ -1,0 +1,21 @@
+{% extends 'noname/base.html' %}
+{% block content %}
+
+<form method="POST" action=" ">
+<br>
+       Dom ogółem: {{ sum|floatformat:2}}
+    <br><br>
+    Czynsz: {{ rent|floatformat:2 }} <br>
+        Woda: {{ water|floatformat:2 }}<br>
+        Prąd: {{ energy|floatformat:2 }} <br>
+        Gaz: {{ gas|floatformat:2 }} <br>
+    Ogrzewanie: {{ heat|floatformat:2 }}
+    <br>
+    Wywóz śmieci: {{ garb|floatformat:2 }} <br>
+        Naprawy: {{ repair|floatformat:2 }}<br>
+        Wyposażenie: {{ equip|floatformat:2 }} <br>
+        Ubezpieczenie: {{ insurance|floatformat:2 }} <br>
+    <br>
+<a href="/home">Wróć</a><br>
+</form>
+{% endblock %}

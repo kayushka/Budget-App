@@ -1,0 +1,14 @@
+{% extends 'noname/base.html' %}
+{% block content %}
+
+<form method="POST" action=" ">
+<br>
+       Kosmetyki ogółem: {{ sum|floatformat:2 }}
+    <br><br>
+    Kosmetyki: {{ cosmetic|floatformat:2 }} <br>
+        Chemia domowa: {{ clean|floatformat:2 }}<br>
+        Fryzjer: {{ hair|floatformat:2 }} <br>
+    <br>
+<a href="/home">Wróć</a><br>
+</form>
+{% endblock %}

@@ -2,6 +2,26 @@
 
 {% block content %}
 <form method="POST" action=" ">
+{{ month }} <br>
+Balans: {{ sum|floatformat:2 }}
+    <br><br>
+    Przychody: {{ income|floatformat:2 }}
+    <br><br>
+    Wydatki: {{ expense|floatformat:2 }}
+    <br><br>
+    <a href="/przychody/">Przychody</a><br><br>
+    Kategorie: <br>
+    <a href="/jedzenie/">Jedzenie</a><br>
+    <a href="/dom/">Dom</a><br>
+    <a href="/transport/">Transport</a><br>
+    <a href="/komunikacja/">Komunikacja</a><br>
+    <a href="/zdrowie/">Zdrowie</a><br>
+    <a href="/ubranie/">Ubrania</a><br>
+    <a href="/kosmetyki/">Kosmetyki</a><br>
+    <a href="/dzieci/">Dzieci</a><br>
+    <a href="/rozrywka/">Rozrywka</a><br>
+    <a href="/inne/">Inne</a><br>
+    <br><br><br>
     <a href="/add_income/">Dodaj przychód</a><br>
     <a href="/add_expense">Dodaj wydatek</a><br>
     <a href="/list/">Lista</a><br>

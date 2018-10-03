@@ -1,0 +1,18 @@
+{% extends 'noname/base.html' %}
+{% block content %}
+
+<form method="POST" action=" ">
+<br>
+       Inne ogółem: {{ sum|floatformat:2 }}
+    <br><br>
+    Prezenty: {{ gifts|floatformat:2 }}<br>
+    Oszczędności: {{ spare|floatformat:2 }} <br>
+        Hotel/turystyka: {{ hotel|floatformat:2 }}<br>
+        Hobby: {{ hobby|floatformat:2 }} <br>
+    Edukacja: {{ education|floatformat:2 }} <br>
+    Oprogramowanie: {{ programs|floatformat:2 }} <br>
+    Inne: {{ other|floatformat:2 }} <br>
+    <br>
+<a href="/home">Wróć</a><br>
+</form>
+{% endblock %}

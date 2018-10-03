@@ -6,14 +6,15 @@
 <ul>
     {% for i in allIncome %}
     <li>
-        {{ i.amount}}
+        {{ i.amount|floatformat:2}}
         {{ i.get_category_display }}
         {{ i.date }}
     </li>
     {% endfor %}
+<br><br>
 {% for i in allExpenses %}
     <li>
-        {{ i.amount}}
+        {{ i.amount|floatformat:2}}
         {{ i.get_category_display }}
         {{ i.date }}
     </li>

@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 
-from noname.views import AddIncome, List, AddExpense, Home, SignUp
+from noname.views import AddIncome, List, AddExpense, Home, SignUp, Incomes, \
+    Food, House, Transport, Communication, Health, Clothes, Beauty, Child, Entertainment, \
+    Other
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +28,15 @@ urlpatterns = [
     re_path('list/$', List.as_view(), name='list'),
     re_path('add_expense/$', AddExpense.as_view()),
     re_path('signup/$', SignUp.as_view(), name='signup'),
+    re_path('przychody/$', Incomes.as_view()),
+    re_path('jedzenie/$', Food.as_view()),
+    re_path('dom/$', House.as_view()),
+    re_path('transport/$', Transport.as_view()),
+    re_path('komunikacja/$', Communication.as_view()),
+    re_path('zdrowie/$', Health.as_view()),
+    re_path('ubranie/$', Clothes.as_view()),
+    re_path('kosmetyki/$', Beauty.as_view()),
+    re_path('dzieci/$', Child.as_view()),
+    re_path('rozrywka/$', Entertainment.as_view()),
+    re_path('inne/$', Other.as_view())
 ]

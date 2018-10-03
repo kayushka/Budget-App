@@ -1,0 +1,13 @@
+{% extends 'noname/base.html' %}
+{% block content %}
+
+<form method="POST" action=" ">
+<br>
+      Ubrania ogółem: {{ sum|floatformat:2 }}
+    <br><br>
+    Ubrania: {{ clothes|floatformat:2 }} <br>
+        Buty: {{ shoes|floatformat:2 }}<br>
+    <br>
+<a href="/home">Wróć</a><br>
+</form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'noname/base.html' %}
+{% block content %}
+
+<form method="POST" action=" ">
+<br>
+       Rozrywka ogółem: {{ sum|floatformat:2 }}
+    <br><br>
+    Sport: {{ sport|floatformat:2 }}<br>
+    Kino/teatr: {{ cinema|floatformat:2 }} <br>
+        Koncerty: {{ concert|floatformat:2 }}<br>
+        Książki: {{ book|floatformat:2 }} <br>
+    <br>
+<a href="/home">Wróć</a><br>
+</form>
+{% endblock %}

@@ -58,8 +58,7 @@ EXPENSES_CHOICES = (
     (43, "Hobby"),
     (44, "Edukacja"),
     (45, "Oprogramowanie"),
-    (46, "Szkolenia"),
-    (47, "Inne")
+    (46, "Inne"),
 )
 
 

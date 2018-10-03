@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="project0@localhost" uuid="93179d0e-1afa-4a78-9d61-da6dc3e2b698">
+    <data-source name="project0db@localhost" uuid="41d67b5f-b6fd-43e9-aee2-2147ffdbea67">
       <database-info product="PostgreSQL" version="10.5 (Ubuntu 10.5-0ubuntu0.18.04)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2" family="POSTGRES" exact-version="10.5">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
@@ -9,12 +9,6 @@
       <secret-storage>master_key</secret-storage>
       <user-name>postgres</user-name>
       <introspection-schemas>@:@</introspection-schemas>
-    </data-source>
-    <data-source name="project0db@localhost" uuid="41d67b5f-b6fd-43e9-aee2-2147ffdbea67">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" family="POSTGRES" exact-version="0.0" />
-      <secret-storage>master_key</secret-storage>
-      <first-sync>true</first-sync>
-      <user-name>postgres</user-name>
     </data-source>
   </component>
 </project>

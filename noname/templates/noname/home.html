@@ -2,28 +2,45 @@
 
 {% block content %}
 <form method="POST" action=" ">
-{{ month }} <br>
-Balans: {{ sum|floatformat:2 }}
-    <br><br>
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-5">
+      <div class="container">
+          <div class="jumbotron text-center ">
+              <h3>{{ month }}</h3>
+              <h4>{{ sum|floatformat:2 }} zł</h4>
+              <br>
+              <div class="progress">
+                  <div class="progress-bar progress-bar-striped active" role="progressbar"
+                  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:{{ a|floatformat:0 }}%" >
+                  {{ a|floatformat:1 }}%
+                  </div>
+              </div>
+              <br>
+
+          </div>
+      </div>
+  </div>
     Przychody: {{ income|floatformat:2 }}
-    <br><br>
-    Wydatki: {{ expense|floatformat:2 }}
-    <br><br>
-    <a href="/przychody/">Przychody</a><br><br>
-    Kategorie: <br>
-    <a href="/jedzenie/">Jedzenie</a><br>
-    <a href="/dom/">Dom</a><br>
-    <a href="/transport/">Transport</a><br>
-    <a href="/komunikacja/">Komunikacja</a><br>
-    <a href="/zdrowie/">Zdrowie</a><br>
-    <a href="/ubranie/">Ubrania</a><br>
-    <a href="/kosmetyki/">Kosmetyki</a><br>
-    <a href="/dzieci/">Dzieci</a><br>
-    <a href="/rozrywka/">Rozrywka</a><br>
-    <a href="/inne/">Inne</a><br>
+              <br><br>
+              Wydatki: {{ expense|floatformat:2 }}
+  <div class="col-sm-5">
+      <a href="/przychody/">Przychody</a><br><br>
+      Kategorie: <br>
+      <div class="list-group">
+          <a href="/jedzenie/" class="list-group-item">Jedzenie</a>
+          <a href="/dom/" class="list-group-item">Dom</a>
+          <a href="/transport/" class="list-group-item">Transport</a>
+          <a href="/komunikacja/" class="list-group-item">Komunikacja</a>
+          <a href="/zdrowie/" class="list-group-item">Zdrowie</a>
+          <a href="/ubranie/" class="list-group-item">Ubrania</a>
+          <a href="/kosmetyki/" class="list-group-item">Kosmetyki</a>
+          <a href="/dzieci/" class="list-group-item">Dzieci</a>
+          <a href="/rozrywka/" class="list-group-item">Rozrywka</a>
+          <a href="/inne/" class="list-group-item">Inne</a>
+      </div>
+  </div>
+  </div>
     <br><br><br>
-    <a href="/add_income/">Dodaj przychód</a><br>
-    <a href="/add_expense">Dodaj wydatek</a><br>
-    <a href="/list/">Lista</a><br>
 </form>
     {% endblock %}

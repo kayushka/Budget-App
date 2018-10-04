@@ -3,23 +3,28 @@
 {% block content %}
 <form method="POST" action=" ">
     {% csrf_token %}
-<ul>
+    <table class="table">
     {% for i in allIncome %}
-    <li>
-        {{ i.amount|floatformat:2}}
-        {{ i.get_category_display }}
-        {{ i.date }}
-    </li>
+        <tr>
+            <td>{{ i.amount|floatformat:2}}</td>
+            <td>{{ i.get_category_display }}</td>
+            <td>{{ i.date }}</td>
+            <td>{{ i.comment }}</td>
+        </tr>
     {% endfor %}
-<br><br>
-{% for i in allExpenses %}
-    <li>
-        {{ i.amount|floatformat:2}}
-        {{ i.get_category_display }}
-        {{ i.date }}
-    </li>
+    </table>
+    <br>
+    <br>
+    <table class="table">
+        {% for i in allExpenses %}
+        <tr>
+            <td>{{ i.amount|floatformat:2}}</td>
+            <td>{{ i.get_category_display }}</td>
+            <td>{{ i.date }}</td>
+            <td>{{ i.comment }}</td>
+        </tr>
     {% endfor %}
-</ul>
-<a href="/home">Wróć</a><br>
+    </table>
+    <a href="/home">Wróć</a><br>
 </form>
     {% endblock %}

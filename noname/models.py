@@ -71,6 +71,7 @@ class Income(models.Model):
     category = models.IntegerField(choices=INCOME_CHOICES)
     date = models.DateField(auto_now_add=True)
     user = models.ForeignKey(MyUser, on_delete=CASCADE)
+    comment = models.TextField(blank=True)
 
 
 class Expenses(models.Model):
@@ -78,3 +79,4 @@ class Expenses(models.Model):
     date = models.DateField(auto_now_add=True)
     category = models.IntegerField(choices=EXPENSES_CHOICES)
     user = models.ForeignKey(MyUser, on_delete=CASCADE)
+    comment = models.TextField(blank=True)

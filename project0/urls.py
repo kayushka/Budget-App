@@ -18,7 +18,7 @@ from django.urls import path, include, re_path
 
 from noname.views import AddIncome, List, AddExpense, Home, SignUp, Incomes, \
     Food, House, Transport, Communication, Health, Clothes, Beauty, Child, Entertainment, \
-    Other
+    Other, Main
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,5 +38,6 @@ urlpatterns = [
     re_path('kosmetyki/$', Beauty.as_view()),
     re_path('dzieci/$', Child.as_view()),
     re_path('rozrywka/$', Entertainment.as_view()),
-    re_path('inne/$', Other.as_view())
+    re_path('inne/$', Other.as_view()),
+    re_path('main/$', Main.as_view())
 ]

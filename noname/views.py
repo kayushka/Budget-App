@@ -10,8 +10,17 @@ from noname.forms import AddIncomeForm, AddExpensesForm, UserCreationForm2
 from noname.models import Income, Expenses
 
 
+# todo corousel (bootstrap) on the main page
+
+class Main(View):
+    def get(self, request):
+        return render(request, 'noname/main.html')
+
+
 class Home(LoginRequiredMixin, View):
     def get(self, request):
+        mnth = ['STYCZEŃ', 'LUTY', 'MARZEC', 'KWIECIEŃ', 'MAJ', 'CZERWIEC', 'LIPIEC', 'SIERPIEŃ',
+                'WRZESIEŃ', 'PAŹDZIERNIK', 'LISTOPAD', 'GRUDZIEŃ']
         current_month = datetime.now().month
         user = request.user
         incomes = Income.objects.filter(user=user, date__month=current_month)
@@ -23,18 +32,18 @@ class Home(LoginRequiredMixin, View):
         for e in expenses:
             expense += float(e.amount)
         sum = float(income) - float(expense)
+        if income != 0.0 or expense != 0.0:
+            a = ((income - expense) / income) * 100
+        else:
+            a = 0.0
         ctx = {
-            "month": current_month,
+            "a": a,
+            "month": mnth[int(current_month) - 1],
             "income": income,
             "expense": expense,
             "sum": sum
         }
         return render(request, 'noname/home.html', ctx)
-
-    # todo w każdym linku u gory podsumowanie wydatków
-    # todo w każdym linku podsumowanie wydatków w każdej podkategorii
-    # todo niedzialajace signup
-    # todo w Home ustawić obecny miesiąc na górze strony
 
 
 class List(LoginRequiredMixin, View):
@@ -59,8 +68,9 @@ class AddIncome(LoginRequiredMixin, View):
         if form.is_valid():
             amount = form.cleaned_data['amount']
             category = form.cleaned_data['category']
+            comment = form.cleaned_data['comment']
             user = request.user
-            income = Income.objects.create(amount=amount, category=category, user=user)
+            income = Income.objects.create(amount=amount, category=category, user=user, comment=comment)
             return redirect('list')
         else:
             return render(request, 'noname/add_income.html', {'form': form})
@@ -76,8 +86,9 @@ class AddExpense(LoginRequiredMixin, View):
         if form.is_valid():
             amount = form.cleaned_data['amount']
             category = form.cleaned_data['category']
+            comment = form.cleaned_data['comment']
             user = request.user
-            expense = Expenses.objects.create(amount=amount, category=category, user=user)
+            expense = Expenses.objects.create(amount=amount, category=category, user=user, comment=comment)
             return redirect('list')
         else:
             return render(request, 'noname/add_expense.html', {'form': form})

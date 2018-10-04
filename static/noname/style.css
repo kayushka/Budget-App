@@ -1,0 +1,84 @@
+.main-page {
+    padding: 80px 120px;
+}
+
+span.logo {
+    color: darkcyan;
+    font-size: 50px;
+}
+
+.carousel-inner img {
+    max-width: 1400px; /* Set width to 100% */
+    height: 100%;
+    max-height: 800px;
+    margin: auto;
+}
+
+.carousel-caption h3 {
+    font-size: 40px;
+    color: #efede8 !important;
+    font-family: OpenSans, sans-serif;
+}
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+}
+
+/* Add a dark background color with a little bit see-through */
+.navbar {
+    margin-bottom: 0;
+    background-color: darkcyan !important;
+    border: 0;
+    font-size: 15px !important;
+    letter-spacing: 4px;
+    opacity:0.9;
+}
+
+/* Add a gray color to all navbar links */
+.navbar li a, .navbar .navbar-brand {
+    color: #e2e2e2 !important;
+}
+
+/* On hover, the links will turn white */
+.navbar-nav li a:hover {
+    color: #fff !important;
+}
+
+/* The active link */
+.navbar-nav li.active a {
+    color: #fff !important;
+    background-color:#29292c !important;
+}
+
+/* Remove border color from the collapsible button */
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+}
+
+/* Dropdown */
+.open .dropdown-toggle {
+    color: #fff ;
+    background-color: #555 !important;
+}
+
+/* Dropdown links */
+.dropdown-menu li a {
+    color: #000 !important;
+}
+
+/* On hover, the dropdown links will turn red */
+.dropdown-menu li a:hover {
+    background-color: red !important;
+}
+
+    /*background-color: #5b80b2;*/
+
+.contact {
+    background-color: #72cdd5 !important;
+}
+
+body {
+    padding-top: 65px;
+}

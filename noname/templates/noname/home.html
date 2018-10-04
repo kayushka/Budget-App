@@ -2,45 +2,63 @@
 
 {% block content %}
 <form method="POST" action=" ">
+
 <div class="row">
-  <div class="col-sm-2"></div>
-  <div class="col-sm-5">
-      <div class="container">
-          <div class="jumbotron text-center ">
+  <div class="col-sm-12">
+      <div class="container prgs">
+          <div class="text-center">
+              <div class="page-header">
               <h3>{{ month }}</h3>
-              <h4>{{ sum|floatformat:2 }} zł</h4>
-              <br>
+              </div>
               <div class="progress">
-                  <div class="progress-bar progress-bar-striped active" role="progressbar"
-                  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:{{ a|floatformat:0 }}%" >
+                  <div class="progress-bar progress-bar-info" role="progressbar"
+                  aria-valuenow="{{ a|floatformat:1 }}" aria-valuemin="0" aria-valuemax="50" style="width:{{ a|floatformat:0 }}%">
                   {{ a|floatformat:1 }}%
                   </div>
               </div>
-              <br>
-
+              <h4>{{ sum|floatformat:2 }} zł</h4>
           </div>
       </div>
   </div>
-    Przychody: {{ income|floatformat:2 }}
-              <br><br>
-              Wydatki: {{ expense|floatformat:2 }}
-  <div class="col-sm-5">
-      <a href="/przychody/">Przychody</a><br><br>
-      Kategorie: <br>
-      <div class="list-group">
-          <a href="/jedzenie/" class="list-group-item">Jedzenie</a>
-          <a href="/dom/" class="list-group-item">Dom</a>
-          <a href="/transport/" class="list-group-item">Transport</a>
-          <a href="/komunikacja/" class="list-group-item">Komunikacja</a>
-          <a href="/zdrowie/" class="list-group-item">Zdrowie</a>
-          <a href="/ubranie/" class="list-group-item">Ubrania</a>
-          <a href="/kosmetyki/" class="list-group-item">Kosmetyki</a>
-          <a href="/dzieci/" class="list-group-item">Dzieci</a>
-          <a href="/rozrywka/" class="list-group-item">Rozrywka</a>
-          <a href="/inne/" class="list-group-item">Inne</a>
-      </div>
-  </div>
-  </div>
+</div>
+<div class="row">
+    <div class="col-sm-2 text-center">
+    <div class="prgs">
+        <h4>Ostatnie wydatki</h4>
+    </div>
+    <table class="table table-bordered">
+        {% for l in last %}
+            <tr>
+            <td>{{ l.amount }} zł</td>
+                <td>{{ l.get_category_display }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+        <a href="/list">Zobacz więcej</a>
+    </div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-6">
+        <div id="piechart"></div>
+    </div>
+    <div class="col-sm-2">
+        <div class="prgs">
+            <h4>Kategorie</h4>
+        </div>
+        <br>
+        <div class="list-group">
+            <a href="/jedzenie/" class="list-group-item">Jedzenie</a>
+            <a href="/dom/" class="list-group-item">Dom</a>
+            <a href="/transport/" class="list-group-item">Transport</a>
+            <a href="/komunikacja/" class="list-group-item">Komunikacja</a>
+            <a href="/zdrowie/" class="list-group-item">Zdrowie</a>
+            <a href="/ubranie/" class="list-group-item">Ubrania</a>
+            <a href="/kosmetyki/" class="list-group-item">Kosmetyki</a>
+            <a href="/dzieci/" class="list-group-item">Dzieci</a>
+            <a href="/rozrywka/" class="list-group-item">Rozrywka</a>
+            <a href="/inne/" class="list-group-item">Inne</a>
+        </div>
+    </div>
+</div>
     <br><br><br>
 </form>
     {% endblock %}

@@ -7,6 +7,43 @@ span.logo {
     font-size: 50px;
 }
 
+.logo-small {
+    color: darkcyan;
+    font-size: 30px;
+}
+
+r {
+colors: #173939;
+colors: #1a4346;
+colors: #255f63;
+colors: #2c7478;
+colors: #3color;
+colors: #3d9ea5;
+colors: #42acb4;
+colors: #58e6f0;
+colors: #3ebfaf;
+colors: #57b8c0;
+}
+.r {
+    opacity: 0;
+}
+
+.righ {
+    text-align: right;
+}
+
+.l {
+    text-align: left;
+}
+
+.prgs h3 {
+    letter-spacing: 8px;
+}
+
+.prgs h4 {
+    letter-spacing: 2px;
+}
+
 .carousel-inner img {
     max-width: 1400px; /* Set width to 100% */
     height: 100%;
@@ -15,6 +52,7 @@ span.logo {
 }
 
 .carousel-caption h3 {
+    letter-spacing: 5px;
     font-size: 40px;
     color: #efede8 !important;
     font-family: OpenSans, sans-serif;

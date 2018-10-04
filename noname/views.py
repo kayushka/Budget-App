@@ -10,8 +10,6 @@ from noname.forms import AddIncomeForm, AddExpensesForm, UserCreationForm2
 from noname.models import Income, Expenses
 
 
-# todo corousel (bootstrap) on the main page
-
 class Main(View):
     def get(self, request):
         return render(request, 'noname/main.html')
@@ -32,11 +30,13 @@ class Home(LoginRequiredMixin, View):
         for e in expenses:
             expense += float(e.amount)
         sum = float(income) - float(expense)
-        if income != 0.0 or expense != 0.0:
+        if income != 0.0 or income != 0:
             a = ((income - expense) / income) * 100
         else:
             a = 0.0
+        last = Expenses.objects.filter(user=user).order_by('-date')[:5]
         ctx = {
+            "last": last,
             "a": a,
             "month": mnth[int(current_month) - 1],
             "income": income,
@@ -49,9 +49,13 @@ class Home(LoginRequiredMixin, View):
 class List(LoginRequiredMixin, View):
     def get(self, request):
         user = request.user
+        mnth = ['STYCZEŃ', 'LUTY', 'MARZEC', 'KWIECIEŃ', 'MAJ', 'CZERWIEC', 'LIPIEC', 'SIERPIEŃ',
+                'WRZESIEŃ', 'PAŹDZIERNIK', 'LISTOPAD', 'GRUDZIEŃ']
+        current_month = datetime.now().month
         all_income = Income.objects.filter(user=user).order_by('date')
         all_expenses = Expenses.objects.filter(user=user).order_by('date')
         ctx = {
+            "month": mnth[int(current_month) - 1],
             "allIncome": all_income,
             "allExpenses": all_expenses
         }

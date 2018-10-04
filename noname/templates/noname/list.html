@@ -3,6 +3,20 @@
 {% block content %}
 <form method="POST" action=" ">
     {% csrf_token %}
+      <div class="container prgs">
+          <div class="text-center">
+              <div class="page-header">
+              <h3>{{ month }}</h3>
+              </div>
+          </div>
+      </div>
+<div class="row">
+    <div class="col-sm-6">
+    <div class="prgs text-center">
+        <h4>Przychody</h4>
+        <span class="glyphicon glyphicon-download logo-small"></span>
+    </div>
+    <br>
     <table class="table">
     {% for i in allIncome %}
         <tr>
@@ -13,7 +27,12 @@
         </tr>
     {% endfor %}
     </table>
-    <br>
+    </div>
+    <div class="col-sm-6">
+    <div class="prgs text-center">
+        <h4>Wydatki</h4>
+        <span class="glyphicon glyphicon-upload logo-small"></span>
+    </div>
     <br>
     <table class="table">
         {% for i in allExpenses %}
@@ -25,6 +44,9 @@
         </tr>
     {% endfor %}
     </table>
-    <a href="/home">Wróć</a><br>
+    </div>
+</div>
 </form>
     {% endblock %}
+
+glyphicons-disk-save

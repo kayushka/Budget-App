@@ -3,7 +3,8 @@
 
 <form method="POST" action=" ">
 <br>
-       Inne ogółem: {{ sum|floatformat:2 }}
+    <div class="text-center prgs">
+        <h4>Inne ogółem: {{ sum|floatformat:2 }}</h4>
     <br><br>
     Prezenty: {{ gifts|floatformat:2 }}<br>
     Oszczędności: {{ spare|floatformat:2 }} <br>
@@ -12,7 +13,40 @@
     Edukacja: {{ education|floatformat:2 }} <br>
     Oprogramowanie: {{ programs|floatformat:2 }} <br>
     Inne: {{ other|floatformat:2 }} <br>
+        <br><br>
     <br>
-<a href="/home">Wróć</a><br>
+        <br>
+    <br>
+        <br>
+    <br>
+        <br>
+    <br>
+        <br>
+    <br>
+        <br>
+    <br>
+        <br>
+    <br>
+        <br>
+    <br>
+        <br>
+    <br>
+        <br>
+    <br>
+    <h4>Inne kategorie:</h4>
+
+        <ul class="pagination">
+  <li><a href="/jedzenie">Jedzenie</a></li>
+  <li><a href="/dom">Dom</a></li>
+  <li><a href="/transport">Transport</a></li>
+  <li><a href="/komunikacja">Komunikacja</a></li>
+  <li><a href="/zdrowie">Zdrowie</a></li>
+            <li><a href="/ubranie">Ubrania</a></li>
+  <li><a href="/kosmetyki">Kosmetyki</a></li>
+  <li><a href="dzieci">Dzieci</a></li>
+            <li><a href="/rozrywka">Rozrywka</a></li>
+  <li class="active"><a href="/inne">Inne</a></li>
+</ul>
+    </div>
 </form>
 {% endblock %}

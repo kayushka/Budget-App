@@ -56,7 +56,7 @@ class Json(View):
         entertainment = 0.0
         for e in entertainments:
             entertainment += e.amount
-        others = Expenses.objects.filter(user=user, date__month=current_month, category__range=(40, 44))
+        others = Expenses.objects.filter(user=user, date__month=current_month, category__range=(40, 46))
         other = 0.0
         for o in others:
             other += o.amount
@@ -91,8 +91,8 @@ class Home(LoginRequiredMixin, View):
         for e in expenses:
             expense += float(e.amount)
         sum = float(income) - float(expense)
-        if income != 0.0 or income != 0:
-            a = ((income - expense) / income) * 100
+        if income != 0.0:
+            a = (expense / income) * 100
         else:
             a = 0.0
         last = Expenses.objects.filter(user=user).order_by('-date')[:5]

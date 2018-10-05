@@ -44,6 +44,19 @@ colors: #57b8c0;
     letter-spacing: 2px;
 }
 
+.pagination>li>span {
+  border: 1px solid purple;
+}
+.pagination>li.active>a {
+  background: darkcyan;
+  color: #fff;
+}
+
+.btn-primary {
+    background: darkcyan !important;
+    color: #ffffff;
+}
+
 .carousel-inner img {
     max-width: 1400px; /* Set width to 100% */
     height: 100%;

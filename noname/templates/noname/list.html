@@ -25,6 +25,8 @@
             <td>{{ i.get_category_display }}</td>
             <td>{{ i.date }}</td>
             <td>{{ i.comment }}</td>
+            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo"><span class="glyphicon glyphicon-wrench"></span></button></td>
+            <td><span class="glyphicon glyphicon-trash"></span></td>
         </tr>
     {% endfor %}
     </table>
@@ -43,10 +45,170 @@
             <td>{{ i.get_category_display }}</td>
             <td>{{ i.date }}</td>
             <td>{{ i.comment }}</td>
+            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><span class="glyphicon glyphicon-wrench"></span></button></td>
+            <td><span class="glyphicon glyphicon-trash"></span></td>
         </tr>
     {% endfor %}
     </table>
     </div>
+</div>
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Kwota</label>
+            <input type="number" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Kategoria</label>
+            <select name="category" id="id_category">
+<option value="1">Pensja</option>
+
+  <option value="2">Pensja partnerki/partnera</option>
+
+  <option value="3">Premia</option>
+
+  <option value="4">Sprzedaż</option>
+
+  <option value="5">Inne</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+        <button type="button" class="btn btn-primary">Zmień</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Kwota</label>
+            <input type="number" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Kategoria</label>
+            <select name="category" id="id_category">
+                <option value="1">Jedzenie dom</option>
+
+  <option value="2">Jedzenie na mieście</option>
+
+  <option value="3">Jedzenie w pracy</option>
+
+  <option value="4">Alkohol</option>
+
+  <option value="5">Czynsz</option>
+
+  <option value="6">Woda</option>
+
+  <option value="7">Prąd</option>
+
+  <option value="8">Gaz</option>
+
+  <option value="9">Ogrzewanie</option>
+
+  <option value="10">Wywóz śmieci</option>
+
+  <option value="11">Naprawy</option>
+
+  <option value="12">Wyposażenie</option>
+
+  <option value="13">Ubezpieczenie</option>
+
+  <option value="14">Paliwo</option>
+
+  <option value="15">Naprawa</option>
+
+  <option value="16">Wyposażenie</option>
+
+  <option value="17">Ubezpieczenie</option>
+
+  <option value="18">Bilety</option>
+
+  <option value="19">Taxi</option>
+
+  <option value="20">Telefon</option>
+
+  <option value="21">Telewizja</option>
+
+  <option value="22">Internet</option>
+
+  <option value="23">Lekarz</option>
+
+  <option value="24">Badania</option>
+
+  <option value="25">Leki</option>
+
+  <option value="26">Ubrania</option>
+
+  <option value="27">Buty</option>
+
+  <option value="28">Kosmetyki</option>
+
+  <option value="29">Chemia domowa</option>
+
+  <option value="30">Fryzjer</option>
+
+  <option value="31">Art. szkolne</option>
+
+  <option value="32">Zajęcia dodatkowe</option>
+
+  <option value="33">Szkoła</option>
+
+  <option value="34">Gry/zabawki</option>
+
+  <option value="35">Opieka nad dziećmi</option>
+
+  <option value="36">Sport</option>
+
+  <option value="37">Kino/teatr</option>
+
+  <option value="38">Koncert</option>
+
+  <option value="39">Książki</option>
+
+  <option value="40">Prezenty</option>
+
+  <option value="41">Oszczędności</option>
+
+  <option value="42">Hotel/turystyka</option>
+
+  <option value="43">Hobby</option>
+
+  <option value="44">Edukacja</option>
+
+  <option value="45">Oprogramowanie</option>
+
+  <option value="46">Inne</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+        <button type="button" class="btn btn-primary">Zmień</button>
+      </div>
+    </div>
+  </div>
 </div>
 </form>
     {% endblock %}

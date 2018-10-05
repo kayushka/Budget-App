@@ -2,7 +2,8 @@ from audioop import reverse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponse
+#from django.core.serializers import json
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.utils.datetime_safe import datetime
 from django.views import View
@@ -13,6 +14,66 @@ from noname.models import Income, Expenses
 class Main(View):
     def get(self, request):
         return render(request, 'noname/main.html')
+
+
+class Json(View):
+    def get(self, request):
+        current_month = datetime.now().month
+        user = request.user
+        foods = Expenses.objects.filter(user=user, date__month=current_month, category__range=(1, 4))
+        food = 0.0
+        for f in foods:
+            food += f.amount
+        houses = Expenses.objects.filter(user=user, date__month=current_month, category__range=(5, 13))
+        house = 0.0
+        for h in houses:
+            house += h.amount
+        transports = Expenses.objects.filter(user=user, date__month=current_month, category__range=(14, 19))
+        transport = 0.0
+        for t in transports:
+            transport += t.amount
+        communications = Expenses.objects.filter(user=user, date__month=current_month, category__range=(20, 22))
+        communication = 0.0
+        for c in communications:
+            communication += c.amount
+        healths = Expenses.objects.filter(user=user, date__month=current_month, category__range=(23, 25))
+        health = 0.0
+        for q in healths:
+            health += q.amount
+        clothes = Expenses.objects.filter(user=user, date__month=current_month, category__range=(26, 27))
+        cloth = 0.0
+        for cl in clothes:
+            cloth += cl.amount
+        cosmetics = Expenses.objects.filter(user=user, date__month=current_month, category__range=(28, 30))
+        cosmetic = 0.0
+        for cc in cosmetics:
+            cosmetic += cc.amount
+        children = Expenses.objects.filter(user=user, date__month=current_month, category__range=(31, 35))
+        child = 0.0
+        for ch in children:
+            child += ch.amount
+        entertainments = Expenses.objects.filter(user=user, date__month=current_month, category__range=(36, 39))
+        entertainment = 0.0
+        for e in entertainments:
+            entertainment += e.amount
+        others = Expenses.objects.filter(user=user, date__month=current_month, category__range=(40, 44))
+        other = 0.0
+        for o in others:
+            other += o.amount
+        all = [
+            ["task", 'house per day'],
+            ["jedzenie", food],
+            ["dom", house],
+            ["tranport", transport],
+            ["komunikacja", communication],
+            ["zdrowie", health],
+            ["ubrania", cloth],
+            ["kosmetyki", cosmetic],
+            ["dzieci", child],
+            ["rozrywka", entertainment],
+            ["inne", other]
+        ]
+        return JsonResponse(all, safe=False)
 
 
 class Home(LoginRequiredMixin, View):
@@ -52,10 +113,20 @@ class List(LoginRequiredMixin, View):
         mnth = ['STYCZEŃ', 'LUTY', 'MARZEC', 'KWIECIEŃ', 'MAJ', 'CZERWIEC', 'LIPIEC', 'SIERPIEŃ',
                 'WRZESIEŃ', 'PAŹDZIERNIK', 'LISTOPAD', 'GRUDZIEŃ']
         current_month = datetime.now().month
-        all_income = Income.objects.filter(user=user).order_by('date')
-        all_expenses = Expenses.objects.filter(user=user).order_by('date')
+        incomes = Income.objects.filter(user=user, date__month=current_month)
+        income = 0.0
+        for i in incomes:
+            income += float(i.amount)
+        expenses = Expenses.objects.filter(user=user, date__month=current_month)
+        expense = 0.0
+        for e in expenses:
+            expense += float(e.amount)
+        all_income = Income.objects.filter(user=user).order_by('-date')
+        all_expenses = Expenses.objects.filter(user=user).order_by('-date')
         ctx = {
             "month": mnth[int(current_month) - 1],
+            "income": income,
+            "expense": expense,
             "allIncome": all_income,
             "allExpenses": all_expenses
         }

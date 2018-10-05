@@ -5,6 +5,7 @@
 
 <form method="POST" action=" ">
 <br>
+    <div class="text-center prgs">
        Jedzenie ogółem: {{ sum|floatformat:2 }}
     <br><br>
     Jedzenie dom: {{ house|floatformat:2 }} <br>
@@ -12,5 +13,6 @@
         Jedzenie w pracy: {{ work|floatformat:2 }} <br>
         Alkohol: {{ alc|floatformat:2 }} <br><br>
 <a href="/home">Wróć</a><br>
+    </div>
 </form>
 {% endblock %}

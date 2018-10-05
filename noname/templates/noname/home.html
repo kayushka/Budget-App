@@ -32,6 +32,9 @@
             <td>{{ l.amount }} zł</td>
                 <td>{{ l.get_category_display }}</td>
             </tr>
+            <tr>
+            <td colspan="2"> {{ l.date }}</td>
+            </tr>
         {% endfor %}
     </table>
         <a href="/list">Zobacz więcej</a>
@@ -42,7 +45,7 @@
     </div>
     <div class="col-sm-2">
         <div class="prgs">
-            <h4>Kategorie</h4>
+            <h4>Kategorie {{ food }}</h4>
         </div>
         <br>
         <div class="list-group">

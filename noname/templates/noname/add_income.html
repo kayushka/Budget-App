@@ -3,11 +3,37 @@
 {% block content %}
 <form method="POST" action=" ">
     {% csrf_token %}
+    <div class="text-center prgs">
+        <h3>Dodaj przychód</h3>
+        <br>
+    {{ form.category.label }}
+    <br>
+    {{ form.category }}
+    <br><br>
+    {{ form.amount.label }}
+    <br>
     {{ form.amount }}
+    <br><br>
+    {{ form.comment.label }}
+    <br>
     {{ form.comment }}
-  <div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{ form.category }}
-  <span class="caret"></span></button>
-  </ul>
-</div>    <button type="submit" value="Dodaj">Dodaj</button>
+<br><br>
+    <button type="submit" value="Dodaj">Dodaj</button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+</form>
+    </form>
     {% endblock %}

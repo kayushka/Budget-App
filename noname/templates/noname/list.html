@@ -13,6 +13,7 @@
 <div class="row">
     <div class="col-sm-6">
     <div class="prgs text-center">
+        <h4> {{ income|floatformat:2 }} </h4>
         <h4>Przychody</h4>
         <span class="glyphicon glyphicon-download logo-small"></span>
     </div>
@@ -30,6 +31,7 @@
     </div>
     <div class="col-sm-6">
     <div class="prgs text-center">
+        <h4>{{ expense|floatformat:2 }}</h4>
         <h4>Wydatki</h4>
         <span class="glyphicon glyphicon-upload logo-small"></span>
     </div>
@@ -49,4 +51,5 @@
 </form>
     {% endblock %}
 
-glyphicons-disk-save
+{# todo usuwanie/edycja w wyskakujacym okienku #}
+{# todo  bootstrap filter #}

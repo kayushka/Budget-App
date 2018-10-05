@@ -1,4 +1,4 @@
-from audioop import reverse
+from django.shortcuts import reverse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -14,6 +14,28 @@ from noname.models import Income, Expenses
 class Main(View):
     def get(self, request):
         return render(request, 'noname/main.html')
+
+
+class DeleteExpense(LoginRequiredMixin, View):
+    def get(self, request, id):
+        user = request.user
+        object = Expenses.objects.get(user=user, id=id)
+        object.delete()
+        return redirect(reverse("list"))
+
+
+class DeleteIncome(LoginRequiredMixin, View):
+    def get(self, request, id):
+        user = request.user
+        object = Income.objects.get(user=user, id=id)
+        object.delete()
+        return redirect(reverse("list"))
+
+
+class EditExpense(View):
+    def post(self, request, id):
+        user = request.user
+        object = Expenses.objects.get(user=user, id=id)
 
 
 class Json(View):

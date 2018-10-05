@@ -18,7 +18,7 @@ from django.urls import path, include, re_path
 
 from noname.views import AddIncome, List, AddExpense, Home, SignUp, Incomes, \
     Food, House, Transport, Communication, Health, Clothes, Beauty, Child, Entertainment, \
-    Other, Main, Json
+    Other, Main, Json, DeleteExpense, DeleteIncome
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,5 +40,7 @@ urlpatterns = [
     re_path('rozrywka/$', Entertainment.as_view()),
     re_path('inne/$', Other.as_view()),
     re_path('main/$', Main.as_view()),
-    re_path('json/$', Json.as_view())
+    re_path('json/$', Json.as_view()),
+    path('edelete/<int:id>', DeleteExpense.as_view()),
+    path('idelete/<int:id>', DeleteIncome.as_view())
 ]
